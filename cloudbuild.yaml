@@ -24,18 +24,18 @@ steps:
   
 substitutions:
     #GCP Specific configuration. Please DON'T change anything
-    _PROJECT: learn-gcp-with-mahesh
-    _ZONE: asia-south1-a
-    _GKE_CLUSTER: learn-gcp-with-mahesh-gke-cluster
-    
+    _PROJECT: gcp-ngt-training
+    _ZONE: us-central1-c
+    _GKE_CLUSTER: cloudbuild-demo-cluster
+
     #Repository Specific configuration. DevOps can change this settings
-    _DEPLOYMENTNAME: hello-world-service
-    _CONTAINERNAME: hello-world-service    
+    _DEPLOYMENTNAME: hello-cloudbuild-demo-app
+    _CONTAINERNAME: hello-cloudbuild-demo-app
     _REPO_NAME: cicd-service
-    
+
     # Developers ONLY change
     _VERSION: v1.0
-    
+
 options:
     substitution_option: 'ALLOW_LOOSE'
     logging: CLOUD_LOGGING_ONLY
