@@ -33,8 +33,8 @@ substitutions:
     _GKE_CLUSTER: cloudbuild-demo-cluster
 
     #Repository Specific configuration. DevOps can change this settings
-    _DEPLOYMENTNAME: hello-cloudbuild-demo-app
-    _CONTAINERNAME: hello-cloudbuild-demo-app
+    _DEPLOYMENTNAME: cloudbuild-demo-app
+    _CONTAINERNAME: cloudbuild-demo-container
     _REPO_NAME: cicd-service
 
     # Developers ONLY change
