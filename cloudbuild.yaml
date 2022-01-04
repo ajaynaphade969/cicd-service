@@ -12,8 +12,8 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
   
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['builds', 'submit', '--tag', 'gcr.io/${_PROJECT}/cloudbuild-demo-image:${_VERSION}','.']
+#- name: 'gcr.io/cloud-builders/gcloud'
+#  args: ['builds', 'submit', '--tag', 'gcr.io/${_PROJECT}/cloudbuild-demo-image:${_VERSION}','.']
 
 #Update the container image using kubectl set
 - name: 'gcr.io/cloud-builders/kubectl'
