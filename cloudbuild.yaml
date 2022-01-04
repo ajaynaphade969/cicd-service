@@ -20,7 +20,7 @@ steps:
   args:
   - 'set'
   - 'image'
-  - '${_DEPLOYMENTNAME}'
+  - 'deployment/${_DEPLOYMENTNAME}'
   - 'gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
