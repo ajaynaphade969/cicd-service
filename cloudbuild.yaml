@@ -21,7 +21,7 @@ steps:
   - 'set'
   - 'image'
   - 'deployment/${_DEPLOYMENTNAME}'
-  - '${_CONTAINERNAME}=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+  - 'hello-cloudbuild-demo-app-88c778b6d=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
