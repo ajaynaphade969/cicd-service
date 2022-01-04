@@ -1,7 +1,8 @@
 steps:
 #First Clone from Google Cloud Source Repository  
 - name: 'gcr.io/cloud-builders/git'
-  args: ['clone','https://source.developers.google.com/p/${_PROJECT}/r/${_REPO_NAME}']
+# args: ['clone','https://source.developers.google.com/p/${_PROJECT}/r/${_REPO_NAME}']
+  args: ['clone', 'https://github.com/ajaynaphade969/cicd-service.git']
 
 #Build the image 
 #- name: 'gcr.io/cloud-builders/docker'
