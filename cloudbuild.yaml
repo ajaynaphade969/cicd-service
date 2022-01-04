@@ -5,12 +5,12 @@ steps:
   args: ['clone', 'https://github.com/ajaynaphade969/cicd-service.git']
 
 #Build the image 
-#- name: 'gcr.io/cloud-builders/docker'
-#  args: ['build','-t','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}','.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build','-t','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}','.']
 
 #Push the image  
-#- name: 'gcr.io/cloud-builders/docker'
-#  args: ['push','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push','gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
   
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['builds', 'submit', '--tag', 'gcr.io/${_PROJECT}/cloudbuild-demo-image:${_VERSION}','.']
