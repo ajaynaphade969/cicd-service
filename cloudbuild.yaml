@@ -16,12 +16,22 @@ steps:
 #  args: ['builds', 'submit', '--tag', 'gcr.io/${_PROJECT}/cloudbuild-demo-image:${_VERSION}','.']
 
 #Update the container image using kubectl set
+#- name: 'gcr.io/cloud-builders/kubectl'
+#  args:
+#  - 'set'
+#  - 'image'
+#  - 'deployment/${_DEPLOYMENTNAME}'
+#  - 'hello-cloudbuild-demo-app-sha256-1=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
+
+#Add the container image using kubectl apply -f filename
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'set'
-  - 'image'
-  - 'deployment/${_DEPLOYMENTNAME}'
-  - 'hello-cloudbuild-demo-app-sha256-1=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+  - 'apply'
+  - '-f'
+  - 'hello-cloudbuild-demo-app.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
@@ -31,7 +41,6 @@ substitutions:
     _PROJECT: gcp-ngt-training
     _ZONE: us-central1-c
     _GKE_CLUSTER: cloudbuild-demo-cluster
-
     #Repository Specific configuration. DevOps can change this settings
     _DEPLOYMENTNAME: hello-cloudbuild-demo-app
     _CONTAINERNAME: hello-cloudbuild-demo-app
@@ -43,4 +52,3 @@ substitutions:
 options:
     substitution_option: 'ALLOW_LOOSE'
     logging: CLOUD_LOGGING_ONLY
-
