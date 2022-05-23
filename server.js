@@ -1,7 +1,8 @@
 var http = require('http');
 var handleRequest = function(request, response) {
   response.writeHead(200);
-  response.end("<h1> Deployed Version is v2.0. Cloud Build in action.......</h1> <br/> 
+  response.end("<h1> Hello ANZ </h1> <br/>
+               <h2>Cloud Build in action.......</h2> <br/> 
                <b> Remember to append -sha256-1 to the container(deployment) name like hello-cloudbuild-demo-app-sha256-1 </b>
   <br/> updated on 05-01-2022");
 }
