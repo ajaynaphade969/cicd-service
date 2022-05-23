@@ -26,16 +26,16 @@ steps:
 #  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
 #  - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
 
-#Add the container image using kubectl apply -f filename
+#Apply the container image using kubectl apply -f filename
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'apply'
   - '-f'
-  - 'hello-cloudbuild-demo-app.yaml'
+  - 'hello-cloudbuild-deployment.yaml'
+  - 'hello-cloudbuild-service.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_GKE_CLUSTER}'
-  
 substitutions:
     #GCP Specific configuration. Please DON'T change anything
     _PROJECT: gcp-ngt-training
