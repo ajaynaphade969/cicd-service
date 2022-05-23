@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-cloudbuild-demo-app
+  namespace: default
+  spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: hello-cloudbuild-demo-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-cloudbuild-demo-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-cloudbuild-demo-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: hello-cloudbuild-demo-app
+        version: v1
+    spec:
+      containers:
+      - image: 
+      gcr.io/gcp-ngt-training/hello-cloudbuild-demo-app@sha256:1994fa229c30e097425e90008a98b268595548c268ab40513a5537af62fcb3bf
+        imagePullPolicy: Always
+        name: hello-cloudbuild-demo-app
+        ports:
+        - containerPort: 8080
