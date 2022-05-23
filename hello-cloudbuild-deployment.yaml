@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-cloudbuild-demo-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-cloudbuild-demo-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: hello-cloudbuild-demo-app
+        version: v1
+    spec:
+      containers:
+      - image: gcr.io/gcp-ngt-training/digital-health-image:latest
+        imagePullPolicy: Always
+        name: hello-cloudbuild-demo-app
+        ports:
+        - containerPort: 8080
